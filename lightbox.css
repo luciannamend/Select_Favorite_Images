@@ -1,0 +1,330 @@
+
+/* --------------------------------------------------------------*/
+/* Styles for the slideshow box containing the images and tools  */
+/* --------------------------------------------------------------*/
+
+/* Styles for the box containing the slideshow and tools */
+div#lightbox {
+   position: relative;
+   width: 960px;
+   height: 170px;
+   margin: 20px auto;
+}
+
+/* Styles for slideshow title */
+div#lightbox h1#galleryTitle {
+   width: 100%;
+   text-align: center;
+   font-size: 2.4em;
+   font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+   margin: 0 0 20px 0;
+}
+
+/* Styles for the left and right arrows to move through the slideshow */
+div#lightbox div#leftBox, div#lightbox div#rightBox {
+   position: absolute;
+   width: 5%;
+   height: 30px;
+   color: #F3EF8F;
+   text-shadow: 2px 2px 2px black;
+   font-size: 20px;
+   font-weight: bold;
+   top: 118px;
+   line-height: 30px;
+   text-align: center;
+   z-index: 1;
+   background: rgba(0,0, 0, 0.0);
+   cursor: pointer;
+   user-select: none;
+}
+
+/* Hovering styles for the left and right arrows */
+div#lightbox div#leftBox:hover, div#lightbox div#rightBox:hover {
+   background: rgba(0,0,0,0.5);
+}
+
+/* Horizontal position of the left arrow */
+div#lightbox div#leftBox {
+   left: 0px;
+}
+
+/* Horizontal position of the right arrow */
+div#lightbox div#rightBox {
+   right: 0px;
+}
+
+/* Styles for the box containing slide images */
+div#lightbox div#slideBox {
+   display: flex;
+   flex-direction: row;     /* Place images within a flexbox on a single row */
+   flex-wrap: nowrap;
+   width: 100%;
+   height: 100%;
+   overflow: hidden;        /* Hide images which overflow the box border */
+}
+
+/* Styles for the box containing the slide counter */
+div#lightbox div#slideCounter {
+   position: absolute;
+   z-index: 1;
+   width: 70px;
+   height: 26px;
+   line-height: 20px;
+   font-size: 20px;
+   background-color: rgba(0,0,0,0.5);
+   border-radius: 4px;
+   text-align: center;
+   color: white;
+   top: 60px;
+   left: 0px;
+   font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, "sans-serif";
+   padding: 3px;
+   user-select: none;
+}
+
+/* Styles for the play-pause button */
+div#lightbox div#playPause {
+   position: absolute;
+   top: 250px;
+   left: 47.5%;
+   text-align: center;
+   font-size: 2.2em;
+   width: 40px;
+   margin: 0 auto;
+   text-shadow: 3px 3px 20px black;
+   cursor: pointer;
+   user-select: none;
+   filter: grayscale(1);
+}
+
+/* Hovering styles for the play-pause button */
+div#lightbox div#playPause:hover {
+   position: absolute;
+   top: 250px;
+   left: 47.5%;
+   text-align: center;
+   font-size: 2.2em;
+   width: 40px;
+   margin: 0 auto;
+   text-shadow: 3px 3px 20px black;
+   cursor: pointer;
+   user-select: none;
+   filter: grayscale(0.6) hue-rotate(120deg);
+}
+
+/* Styles for images within the slideshow box */
+div#slideBox img {
+   display: block;
+   width: 230px;
+   height: auto;
+   margin-right: 13px;
+   filter: opacity(0.8);
+   cursor: pointer;
+   outline: 2px solid #9C6908;
+   box-shadow: 3px 3px 10px black;  
+   user-select: none;   
+}
+
+/* Hovering styles for images within the slideshow box */
+div#slideBox img:hover {
+   filter: opacity(1);
+}
+
+/* ---------------------------------------------------------*/
+/* Styles for the overlay displaying an image in fullscreen */
+/* ---------------------------------------------------------*/
+
+/* Styles for the overlay */
+div#lbOverlay {
+   position: fixed;                        /* Overlay is fixed on screen */
+   z-index: 1;                             /* Overlay sits on top of other content */
+   width: 100%;                            /* Full width */
+   height: 100%;                           /* Full height */
+   top: 0;
+   left: 0;
+   background-color: rgba(104,49,0,0.85);  /* Semitransparent brown background */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+/* Styles for the figure box within the overlay */
+div#lbOverlay figure {
+   display: block;
+   width: 80%;
+   max-width: 800px;
+}
+
+/* Styles for the image within the overlay */
+div#lbOverlay figure img {
+   display: block;
+   margin: auto;
+   width: 100%;
+   height: auto;
+   box-shadow: 5px 5px 20px black;
+   animation-name: zoom;      /* animate the opening of the figure */
+   animation-duration: 1s;    /* over a 1-second interval */
+}
+
+/* Styles for the caption within the overlay */
+div#lbOverlay figure figcaption {
+   text-align: center;
+   font-size: 1.25em;
+   color: white;
+   margin-top: 10px;
+   animation-name: zoom;      /* animate the opening of the figure */
+   animation-duration: 1s;    /* over a 1-second interval */  
+}
+
+/* Styles for the overlay close button */
+div#lbOverlay div#lbOverlayClose {
+   position: absolute;
+   top: 20px;
+   right: 40px;
+   color: #f1f1f1;
+   font-size: 40px;
+   cursor: pointer;
+   user-select: none;
+}
+
+/* Hovering styles for the modal window close button */
+div#lbOverlay div#lbOverlayClose:hover {
+   color: #F7F1A9;
+   text-shadow: 3px 3px 0px black;
+}
+
+div#activeModal{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.647);
+   z-index: 1;
+   overflow: auto;
+}
+
+div#activeModal img{
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   width: 60%;
+   top: 10rem;
+   left: 20%;
+   pointer-events: auto;
+   background-color: black;   
+   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.247);
+   background-clip: padding-box;
+   border-radius: 0.5rem;
+   outline: 0;
+}
+
+div#activeModal figcaption{
+   color: white;
+   font-size: 20px;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   width: 60%;
+   text-align: center;
+   top: 11rem;
+   left: 20%;
+   pointer-events: auto;
+   background-clip: padding-box;
+   border-radius: 0.5rem;
+   outline: 0;
+}
+
+/* close button of the modal images */
+div#modalClose{   
+   color: white;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   width: 8%;
+   text-align: center;
+   padding: 15px;
+   top: 13rem;
+   left: 58%;
+   pointer-events: auto;
+   background-color: rgba(0, 0, 0, 0.764);   
+   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.11);
+   background-clip: padding-box;
+   border-radius: 0.5rem;
+   cursor: pointer;
+   outline: 0;
+}
+
+/* add button of the modal images */
+div#addBox{
+   color: white;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   padding: 15px;
+   width: 20%;
+   top: 10rem;
+   left: 34%;
+   pointer-events: auto;
+   background-color: rgba(0, 0, 0, 0.764);   
+   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.11);
+   background-clip: padding-box;
+   border-radius: 0.5rem;
+   cursor: pointer;
+   outline: 0;
+}
+
+/* my favorite images area */
+div#myFavoriteImages{   
+   display: flex;
+   width: 100%;
+   padding: 5px;   
+   justify-content: center;
+}
+
+div#imageButtonWrapper{
+   width: 100%;
+}
+
+div#favourite-images-wrapper{
+   background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* my favorite images title */
+div#favourite-images-wrapper h2{   
+   text-align: center;
+   font-size: 31px;
+   padding: 15px;
+}
+
+/* images of my favorite images area */
+div#myFavoriteImages img{
+   display: block;
+   width: 165px;
+   height: auto;
+   margin-right: 13px;
+   cursor: pointer;
+   user-select: none;   
+}
+
+/* remove button of my favorite images */
+.favImageRemoveButton{
+   color: white;
+   display: grid;
+   margin: 0;
+   width: 93%;
+   height: 30px;
+   pointer-events: auto;
+   background-color: rgba(0, 0, 0, 0.925);   
+   box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.11);
+   background-clip: padding-box;
+   cursor: pointer;
+   outline: 0;
+}
+
+/* Keyframe animation for the opening of the modal window figure and caption */
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
